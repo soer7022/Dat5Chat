@@ -17,7 +17,7 @@ var io = socket(server);
 io.on('connection',function (socket) {
    console.log("Connection established id: ", socket.id);
    var chathistoryString = JSON.stringify(chathistory);
-   chathistoryString = chathistoryString.replace(/["]|[\[\]']+/g, '');
+   chathistoryString = chathistoryString.replace(/["]|[\[\]']|[,]+/g, '');
    socket.emit('chathistory',chathistoryString);
 
     socket.on('chat', function (data) {
