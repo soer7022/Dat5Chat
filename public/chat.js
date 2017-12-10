@@ -29,6 +29,10 @@ socket.on('chat', function(data){
     chat.scrollTop = chat.scrollHeight;
 });
 
+socket.on('chathistory',function (data) {
+    output.innerHTML += data;
+});
+
 socket.on('typing', function(data){
     feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
 });
